@@ -2,12 +2,203 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>expense-tracker-ts</title>
+    <meta
+      name="description"
+      content="Manage your daily expenses and income easily with ExpansePro. Track transactions, filter by bank, and stay in control of your finances."
+    />
+    <meta
+      name="keywords"
+      content="expense tracker, money manager, budget app, income expense tracker, finance tracker, personal finance app"
+    />
+    <title>ExpansePro | Smart Expense & Income Tracker</title>
+    <meta name="author" content="Mantu Morya" />
+    <link rel="icon" href="./src/assets/icons/wallet-svgrepo-com.svg" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="stylesheet" href="./src/styles/responsive/responsive.css" />
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+  <body class="app">
+    <header class="header">
+      <div class="header__container">
+        <a href="./index.html" class="headar__left">
+          <img
+            class="header__wallet__logo"
+            src="./src/assets/icons/wallet-svgrepo-com.svg"
+            alt="wallet_logo"
+          />
+          <h1>Expense<span class="header__span">Pro</span></h1>
+        </a>
+        <nav class="headar__mid">
+          <div>
+            <img
+              class="header__logo"
+              src="./src/assets/icons/home-smile-svgrepo-com.svg"
+              alt="home_logo"
+            />
+            <a href="./index.html">Dashboard</a>
+          </div>
+          <div>
+            <img
+              class="header__logo"
+              src="./src/assets/icons/history-svgrepo-com.svg"
+              alt="history_logo"
+            />
+            <a href="./src/pages/history.html">History</a>
+          </div>
+          <div>
+            <img
+              class="header__logo"
+              src="./src/assets/icons/arrow-up-circle-svgrepo-com.svg"
+              alt="arrow_up"
+            />
+            <a href="./src/pages/income.html">Income</a>
+          </div>
+          <div>
+            <img
+              class="header__logo"
+              src="./src/assets/icons/arrow-down-circle-svgrepo-com.svg"
+              alt="arrow_down"
+            />
+            <a href="./src/pages/expenses.html">Expenses</a>
+          </div>
+        </nav>
+        <div class="headar__right">
+          <img
+            class="header__dark__logo"
+            src="./src/assets/icons/night-mode-svgrepo-com.svg"
+            alt="dark_mode_logo"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <section class="amount__balance">
+        <div class="current__balance">
+          <div>
+            <img
+              class="wallet__logo"
+              src="./src/assets/icons/wallet-2-svgrepo-com.svg"
+              alt="wallet__logo"
+            />
+          </div>
+          <div>
+            <h3>Current Balance</h3>
+            <h3 class="current__balance__amount">₹0.00</h3>
+            <p class="active__wallet">Active Wallet</p>
+          </div>
+        </div>
+        <div class="total__income">
+          <div>
+            <img
+              class="total__income__logo"
+              src="./src/assets/icons/arrow-down-svgrepo-com.svg"
+              alt="total__income__logo"
+            />
+          </div>
+          <div>
+            <h3>Total Income</h3>
+            <h3 class="total__income__amount">₹0.00</h3>
+          </div>
+        </div>
+        <div class="total__expenses">
+          <div>
+            <img
+              class="total__expenses__logo"
+              src="./src/assets/icons/arrow-up-svgrepo-com.svg"
+              alt="total__expenses__logo"
+            />
+          </div>
+          <div>
+            <h3>Total Expenses</h3>
+            <h3 class="total__expenses__amount">₹0.00</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="transactions">
+        <div class="add__transactions">
+          <h3 class="add__transaction__heading">
+            <img
+              class="add__transaction__logo"
+              src="./src/assets/icons/add-to-svgrepo-com.svg"
+              alt="add__transaction__logo"
+            />
+            Add New Transaction
+          </h3>
+          <div class="add__transactions__detail">
+            <div class="add__transactions__description">
+              <label for="description">Description</label>
+              <input
+                class="description__input"
+                type="text"
+                placeholder="e.g. Monthly Salary"
+                required
+              />
+            </div>
+
+            <div class="amt__type">
+              <div class="add__transactions__amount">
+                <label for="amount">Amount</label>
+                <input class="amount__input" type="number" placeholder="0.00" />
+              </div>
+
+              <div class="add__transactions__type">
+                <label for="type">Type</label>
+                <select class="type__input" name="type" id="type">
+                  <option value="Expense">Expense</option>
+                  <option value="Income">Income</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="add__transactions__bank__source">
+              <label for="bank__source">Bank / Source</label>
+              <select class="bank__input" name="bank__source" id="bank__source">
+                <option value="HDFC__Bank">HDFC Bank</option>
+                <option value="SBI">SBI</option>
+                <option value="ICICI__Bank">ICICI Bank</option>
+                <option value="AXIS__Bank">AXIS Bank</option>
+                <option value="Paytm">Paytm</option>
+                <option value="GPay">GPay</option>
+                <option value="Cash">Cash</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="add__transactions__category">
+              <label for="category">Category</label>
+              <select class="category__input" name="category" id="category">
+                <option value="Salary">Salary</option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Bill">Bill</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Health">Health</option>
+                <option value="Investment">Investment</option>
+
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <button class="add__transaction__save__button">
+              Save Transaction
+            </button>
+          </div>
+        </div>
+
+        <div class="recent__transactions">
+          <div class="recent__transactions__heading">
+            <h3>Recent Transactions</h3>
+            <button class="vier__all__transaction">View All</button>
+          </div>
+
+          <div class="recent__transactions__history">
+            <div class="history__data"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./src/Script/main.ts"></script>
   </body>
 </html>

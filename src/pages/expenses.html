@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage your daily expenses and income easily with ExpansePro. Track transactions, filter by bank, and stay in control of your finances."
+    />
+    <meta
+      name="keywords"
+      content="expense tracker, money manager, budget app, income expense tracker, finance tracker, personal finance app"
+    />
+    <title>ExpansePro | Smart Expense & Income Tracker</title>
+    <link rel="icon" href="../assets/icons/wallet-svgrepo-com.svg" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/responsive/responsive.css" />
+  </head>
+  <body class="app">
+    <header class="header">
+      <div class="header__container">
+        <a href="../index.html" class="headar__left">
+          <img
+            class="header__wallet__logo"
+            src="../assets/icons/wallet-svgrepo-com.svg"
+            alt="wallet_logo"
+          />
+          <h1>Expanse<span class="header__span">Pro</span></h1>
+        </a>
+        <nav class="headar__mid">
+          <div>
+            <img
+              class="header__logo"
+              src="../assets/icons/home-smile-svgrepo-com.svg"
+              alt="home_logo"
+            />
+            <a href="../../index.html">Dashboard</a>
+          </div>
+          <div>
+            <img
+              class="header__logo"
+              src="../assets/icons/history-svgrepo-com.svg"
+              alt="history_logo"
+            />
+            <a href="./history.html">History</a>
+          </div>
+          <div>
+            <img
+              class="header__logo"
+              src="../assets/icons/arrow-up-circle-svgrepo-com.svg"
+              alt="arrow_up"
+            />
+            <a href="./income.html">Income</a>
+          </div>
+          <div>
+            <img
+              class="header__logo"
+              src="../assets/icons/arrow-down-circle-svgrepo-com.svg"
+              alt="arrow_down"
+            />
+            <a href="./expenses.html">Expenses</a>
+          </div>
+        </nav>
+        <div class="headar__right">
+          <img
+            class="header__dark__logo"
+            src="../assets/icons/night-mode-svgrepo-com.svg"
+            alt="dark_mode_logo"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <section class="filter__main">
+        <div class="filter__left">
+          <h2>Expense Transactions</h2>
+          <p class="expense__record">3 records found</p>
+        </div>
+        <div class="filter__right">
+          <select
+            class="filter__right__select"
+            name="filter__right"
+            id="filter__right"
+          >
+            <option value="All__Bank">All Bank</option>
+            <option value="HDFC__Bank">HDFC Bank</option>
+            <option value="SBI">SBI</option>
+            <option value="ICICI__Bank">ICICI Bank</option>
+            <option value="AXIS__Bank">AXIS Bank</option>
+            <option value="Paytm">Paytm</option>
+            <option value="GPay">GPay</option>
+            <option value="Cash">Cash</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </section>
+
+      <div class="recent__transactions__history">
+        <div class="history__data history__page"></div>
+      </div>
+    </main>
+    <script src="../Script/expenses.ts"></script>
+  </body>
+</html>
