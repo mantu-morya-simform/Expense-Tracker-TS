@@ -40,6 +40,7 @@ function showHistoryData(data) {
                                     </div>
                                 </div>
                                 <b><p class="transaction__amount">₹${item.amount}</p></b>
+                                 <img class="edit__icon" src="../assets/icons/pencil-simple.svg" alt="" />
                                 <img class="delete__icon" src="../assets/icons/trash.svg" alt="" />
                             </div>
     `,
@@ -89,4 +90,18 @@ historyELement?.addEventListener("click", (e: MouseEvent) => {
   localStorage.setItem("transactions", JSON.stringify(updatedData));
 
   showHistoryData(updatedData);
+});
+
+historyELement?.addEventListener("click", (e: MouseEvent) => {
+  const target = e.target as HTMLElement;
+
+  const editBtn = target.closest(".edit__icon");
+  if (!editBtn) return;
+
+  const transactionDiv = editBtn.closest(".transaction__single__history");
+  if (!transactionDiv) return;
+
+  const id = Number(transactionDiv.getAttribute("data-id"));
+
+  window.location.href = `../../src/pages/edit.html?id=${id}`;
 });

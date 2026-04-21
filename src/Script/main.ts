@@ -86,6 +86,7 @@ const showRecentData = () => {
                             />
                             <p>No transactions yet. Add your first one!</p>`;
   } else {
+    console.log(recentData);
     historyELement.innerHTML = recentData
       .map(
         (item) => `
@@ -161,7 +162,6 @@ historyELement?.addEventListener("click", (e: MouseEvent) => {
   if (!transactionDiv) return;
 
   const id = Number(transactionDiv.getAttribute("data-id"));
-  console.log(id);
 
   window.location.href = `../../src/pages/edit.html?id=${id}`;
 });

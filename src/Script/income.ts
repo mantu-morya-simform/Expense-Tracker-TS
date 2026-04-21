@@ -41,6 +41,7 @@ function showIncomeData(incomeData) {
                                     </div>
                                 </div>
                                 <b><p class="transaction__amount">₹${item.amount}</p></b>
+                                 <img class="edit__icon" src="../assets/icons/pencil-simple.svg" alt="" />
                                 <img class="delete__icon" src="../assets/icons/trash.svg" alt="" />
                             </div>
     `,
@@ -96,4 +97,18 @@ historyELement?.addEventListener("click", (e: MouseEvent) => {
   incomeData = updatedData.filter((item) => item.type === "Income");
 
   showIncomeData(incomeData);
+});
+
+historyELement?.addEventListener("click", (e: MouseEvent) => {
+  const target = e.target as HTMLElement;
+
+  const editBtn = target.closest(".edit__icon");
+  if (!editBtn) return;
+
+  const transactionDiv = editBtn.closest(".transaction__single__history");
+  if (!transactionDiv) return;
+
+  const id = Number(transactionDiv.getAttribute("data-id"));
+
+  window.location.href = `../../src/pages/edit.html?id=${id}`;
 });
