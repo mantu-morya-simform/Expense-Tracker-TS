@@ -10,7 +10,7 @@ import { bankFilterTransactions } from "../utils/bankFilterTransactions";
 const data = getTransactions();
 showTransactionsData(data);
 
-bankSelect.addEventListener("change", (e) => {
+bankSelect?.addEventListener("change", (e) => {
   bankFilterTransactions(e, data);
 });
 

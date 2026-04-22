@@ -1,9 +1,15 @@
 let saveBtn = document.querySelector(".add__transaction__save__button");
-const historyELement = document.querySelector(".history__data");
-let totalExpenseAmount = document.querySelector(".total__expenses__amount");
-let totalIncomeAmount = document.querySelector(".total__income__amount");
-let currentBalanceAmount = document.querySelector(".current__balance__amount");
-let viewAll = document.querySelector(".vier__all__transaction");
+const historyELement = document.querySelector<HTMLElement>(".history__data");
+let totalExpenseAmount = document.querySelector<HTMLElement>(
+  ".total__expenses__amount",
+);
+let totalIncomeAmount = document.querySelector<HTMLElement>(
+  ".total__income__amount",
+);
+let currentBalanceAmount = document.querySelector<HTMLElement>(
+  ".current__balance__amount",
+);
+let viewAll = document.querySelector<HTMLElement>(".vier__all__transaction");
 
 let description = document.querySelector<HTMLInputElement>(
   ".description__input",
@@ -21,6 +27,12 @@ const recordElement = document.querySelector<HTMLElement>(
   ".transaction__record",
 );
 
+const updateTransactionCancelBtn = document.querySelector<HTMLButtonElement>(
+  ".add__transaction__cancel__button",
+);
+
+let updateBtn = document.querySelector(".add__transaction__update__button");
+
 export {
   saveBtn,
   historyELement,
@@ -35,4 +47,6 @@ export {
   category,
   bankSelect,
   recordElement,
+  updateTransactionCancelBtn,
+  updateBtn,
 };

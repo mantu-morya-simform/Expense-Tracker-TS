@@ -12,7 +12,7 @@ import { viewAll } from "../models/dom";
  * @returns {void}
  */
 export function viewAllTransaction(): void {
-  viewAll.addEventListener("click", () => {
+  viewAll?.addEventListener("click", () => {
     /**
      * Navigate to history page
      */

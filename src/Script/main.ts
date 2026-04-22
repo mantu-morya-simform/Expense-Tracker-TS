@@ -21,7 +21,7 @@ import { viewAllTransaction } from "../utils/viewHistory";
  *
  * @listens click
  */
-saveBtn.addEventListener("click", saveTransaction);
+saveBtn?.addEventListener("click", saveTransaction);
 
 totalIncomeAndExpanse();
 

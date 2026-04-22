@@ -14,7 +14,7 @@ let incomeData = data.filter((item) => item.type === "Income");
 
 showTransactionsData(incomeData);
 
-bankSelect.addEventListener("change", (e) => {
+bankSelect?.addEventListener("change", (e) => {
   bankFilterTransactions(e, incomeData);
 });
 

@@ -6,6 +6,9 @@ import {
 import { getTransactions } from "../storage/transactionStorage";
 
 export function totalIncomeAndExpanse() {
+  if (!currentBalanceAmount || !totalIncomeAmount || !totalExpenseAmount) {
+    return;
+  }
   /**
    * Calculate total income
    */

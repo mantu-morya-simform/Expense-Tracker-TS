@@ -30,6 +30,11 @@ import { showTransactionsData } from "../ui/historyUI";
 export function saveTransaction(e: Event): void {
   e.preventDefault();
 
+  if (!description || !amount || !type || !bank || !category) {
+    alert("Form elements not found");
+    return;
+  }
+
   /** Validate description input */
   if (!description.value) {
     alert("Description Not Define");

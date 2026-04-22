@@ -14,6 +14,7 @@ import type { Transaction } from "../models/transaction";
  * @returns {void}
  */
 export const showTransactionsData = (data: Transaction[]): void => {
+  if (!historyELement) return;
   /**
    * Retrieve transactions from localStorage
    * Defaults to empty array if no data exists

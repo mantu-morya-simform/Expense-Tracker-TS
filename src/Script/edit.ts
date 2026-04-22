@@ -1,65 +1,49 @@
+import { updateBtn } from "../models/dom";
+import type { Transaction } from "../models/transaction";
+import { updateData } from "../services/updateTransactionService";
+import { getTransactions } from "../storage/transactionStorage";
+import { goToHome } from "../utils/goToHome";
+import { loadInitialData } from "../utils/loadInitialData";
+
+/**
+ * Extracts the transaction ID from the URL query parameters.
+ * Example: ?id=123
+ */
 const params = new URLSearchParams(window.location.search);
-const id = Number(params.get("id"));
+const id: number = Number(params.get("id"));
 
-const data = JSON.parse(localStorage.getItem("transactions") || "[]");
+/**
+ * Fetch all stored transactions from local storage.
+ */
+const data: Transaction[] = getTransactions();
 
-const selectedData = data.find((item) => item.id === id);
-
-let updateBtn = document.querySelector(".add__transaction__update__button");
-let description = document.querySelector<HTMLInputElement>(
-  ".description__input",
+/**
+ * Find the selected transaction using the ID from the URL.
+ * Note: This can return undefined if no matching transaction is found.
+ */
+const selectedData: Transaction | undefined = data.find(
+  (item) => item.id === id,
 );
-let amount = document.querySelector<HTMLInputElement>(".amount__input");
-let type = document.querySelector<HTMLInputElement>(".type__input");
-let bank = document.querySelector<HTMLInputElement>(".bank__input");
-let category = document.querySelector<HTMLInputElement>(".category__input");
 
-function loadInitialData() {
-  description.value = selectedData.description;
-  amount.value = selectedData.amount;
-  type.value = selectedData.type;
-  bank.value = selectedData.bank;
-  category.value = selectedData.category;
+/**
+ * Load initial data into the UI form fields for editing.
+ * Only runs if a valid transaction is found.
+ */
+if (selectedData) {
+  loadInitialData(selectedData);
 }
-loadInitialData();
 
-const updateData = (e) => {
-  e.preventDefault();
+/**
+ * Handle update button click event.
+ * Updates the selected transaction with new values.
+ */
 
-  if (!description.value) {
-    alert("Description Not Define");
-    return;
-  }
+updateBtn?.addEventListener("click", (e: Event) => {
+  if (!selectedData) return;
+  updateData(e, id, selectedData, data);
+});
 
-  if (!amount.value) {
-    alert("Amount Not Define");
-    return;
-  }
-
-  if (Number(amount.value) <= 0) {
-    alert("Provide Correct Amount");
-    return;
-  }
-
-  const transaction = {
-    id: selectedData.id,
-    description: description.value,
-    amount: Number(amount.value),
-    type: type.value,
-    bank: bank.value,
-    category: category.value,
-    date: new Date().toLocaleString(),
-  };
-
-  const newDataAfterUpdate = data.filter((item) => item.id !== id);
-
-  // add new updated data
-  newDataAfterUpdate.push(transaction);
-
-  // save back updated data
-  localStorage.setItem("transactions", JSON.stringify(newDataAfterUpdate));
-  alert("Data Update Successfully");
-  window.location.href = "../../index.html";
-};
-
-updateBtn.addEventListener("click", updateData);
+/**
+ * Redirect user back to home page when needed.
+ */
+goToHome();
