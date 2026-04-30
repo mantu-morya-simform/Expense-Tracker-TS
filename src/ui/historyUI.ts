@@ -28,7 +28,7 @@ export const showTransactionsData = (data: Transaction[]): void => {
       <img
         class="recent__transactions__not__found__logo"
         src="/src/assets/icons/not-found-error-alert-svgrepo-com.svg"
-        alt=""
+        alt="transaction__not__found__logo"
       />
       <p>No transactions yet. Add your first one!</p>
     `;
@@ -55,13 +55,13 @@ export const showTransactionsData = (data: Transaction[]): void => {
               <img
                 class="total__income__logo"
                 src="/src/assets/icons/arrow-up-svgrepo-com.svg"
-                alt=""
+                alt="income__logo"
               />`
               : `
               <img
                 class="total__income__logo"
                 src="/src/assets/icons/arrow-down-svgrepo-com.svg"
-                alt=""
+                alt="expanse__logo"
               />`
           }
 
@@ -80,8 +80,8 @@ export const showTransactionsData = (data: Transaction[]): void => {
             <p class="transaction__amount">₹${item.amount}</p>
           </b>
 
-          <img class="edit__icon" src="../../src/assets/icons/pencil-simple.svg" alt="" />
-          <img class="delete__icon" src="../../src/assets/icons/trash.svg" alt="" />
+          <img class="edit__icon" src="../../src/assets/icons/pencil-simple.svg" alt="edit__btn__logo" />
+          <img class="delete__icon" src="../../src/assets/icons/trash.svg" alt="delete__btn__logo" />
         </div>
       `;
     })

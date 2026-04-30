@@ -1,12 +1,13 @@
-import { bankSelect } from "../models/dom";
 import {
   deleteTransaction,
   editTransaction,
 } from "../services/transactionService";
 import { getTransactions } from "../storage/transactionStorage";
 import { showTransactionsData } from "../ui/historyUI";
+import { renderBankFilter } from "../ui/renderBankFilter";
 import { bankFilterTransactions } from "../utils/bankFilterTransactions";
 
+let bankSelect = renderBankFilter("filter-container");
 const data = getTransactions();
 showTransactionsData(data);
 

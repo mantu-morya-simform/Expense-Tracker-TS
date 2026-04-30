@@ -1,5 +1,6 @@
 import { amount, bank, category, description, type } from "../models/dom";
 import type { Transaction } from "../models/transaction";
+import { ErrorMessages, SuccessMessages } from "../storage/constants";
 
 /**
  * Updates an existing transaction and saves it back to localStorage.
@@ -20,31 +21,22 @@ export function updateData(
   e.preventDefault();
 
   if (!description || !amount || !type || !bank || !category) {
-    alert("Form elements not found");
+    alert(ErrorMessages.FORM_NOT_FOUND);
     return;
   }
 
-  /**
-   * Validate description input
-   */
   if (!description.value) {
-    alert("Description Not Define");
+    alert(ErrorMessages.DESCRIPTION_REQUIRED);
     return;
   }
 
-  /**
-   * Validate amount input
-   */
   if (!amount.value) {
-    alert("Amount Not Define");
+    alert(ErrorMessages.AMOUNT_REQUIRED);
     return;
   }
 
-  /**
-   * Ensure amount is greater than 0
-   */
   if (Number(amount.value) <= 0) {
-    alert("Provide Correct Amount");
+    alert(ErrorMessages.INVALID_AMOUNT);
     return;
   }
 
@@ -79,6 +71,6 @@ export function updateData(
   /**
    * Notify user and redirect to home page
    */
-  alert("Data Update Successfully");
+  alert(SuccessMessages.DATA_SAVED);
   window.location.href = "../../index.html";
 }

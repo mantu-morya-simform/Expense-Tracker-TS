@@ -13,6 +13,7 @@ import {
   type,
 } from "../models/dom";
 import type { Transaction } from "../models/transaction";
+import { ErrorMessages, SuccessMessages } from "../storage/constants";
 import {
   getTransactions,
   saveTransactions,
@@ -31,25 +32,22 @@ export function saveTransaction(e: Event): void {
   e.preventDefault();
 
   if (!description || !amount || !type || !bank || !category) {
-    alert("Form elements not found");
+    alert(ErrorMessages.FORM_NOT_FOUND);
     return;
   }
 
-  /** Validate description input */
   if (!description.value) {
-    alert("Description Not Define");
+    alert(ErrorMessages.DESCRIPTION_REQUIRED);
     return;
   }
 
-  /** Validate amount input */
   if (!amount.value) {
-    alert("Amount Not Define");
+    alert(ErrorMessages.AMOUNT_REQUIRED);
     return;
   }
 
-  /** Validate amount value (> 0) */
   if (Number(amount.value) <= 0) {
-    alert("Provide Correct Amount");
+    alert(ErrorMessages.INVALID_AMOUNT);
     return;
   }
 
@@ -79,7 +77,7 @@ export function saveTransaction(e: Event): void {
   /** Refresh UI */
   showTransactionsData(existingData);
 
-  alert("Data Saved Successfully");
+  alert(SuccessMessages.DATA_SAVED);
 }
 
 /**
