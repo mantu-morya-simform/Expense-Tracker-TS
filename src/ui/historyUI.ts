@@ -27,7 +27,7 @@ export const showTransactionsData = (data: Transaction[]): void => {
     historyELement.innerHTML = `
       <img
         class="recent__transactions__not__found__logo"
-        src="./src/assets/icons/not-found-error-alert-svgrepo-com.svg"
+        src="../../src/assets/icons/not-found-error-alert-svgrepo-com.svg"
         alt="transaction__not__found__logo"
       />
       <p>No transactions yet. Add your first one!</p>
