@@ -3,8 +3,9 @@ import { bankOptions } from "../storage/constants";
 export function renderBankFilter(
   containerId: string,
 ): HTMLSelectElement | null {
-  const container = document.getElementById(containerId);
-  if (!container) return;
+  const container = document.querySelector<HTMLDivElement>(`#${containerId}`);
+
+  if (!container) return null;
 
   const select = document.createElement("select");
   select.className = "filter__right__select";
