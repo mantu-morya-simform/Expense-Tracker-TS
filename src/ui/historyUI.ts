@@ -6,6 +6,11 @@
 
 import { historyELement } from "../models/dom";
 import type { Transaction } from "../models/transaction";
+import notFoundIcon from "../assets/icons/not-found-error-alert-svgrepo-com.svg";
+import arrowUpIcon from "../assets/icons/arrow-up-svgrepo-com.svg";
+import arrowDownIcon from "../assets/icons/arrow-down-svgrepo-com.svg";
+import pencilIcon from "../assets/icons/pencil-simple.svg";
+import trashIcon from "../assets/icons/trash.svg";
 
 /**
  * Fetches transaction data from localStorage, calculates financial summaries,
@@ -27,7 +32,7 @@ export const showTransactionsData = (data: Transaction[]): void => {
     historyELement.innerHTML = `
       <img
         class="recent__transactions__not__found__logo"
-        src="../../src/assets/icons/not-found-error-alert-svgrepo-com.svg"
+        src="${notFoundIcon}"
         alt="transaction__not__found__logo"
       />
       <p>No transactions yet. Add your first one!</p>
@@ -54,13 +59,13 @@ export const showTransactionsData = (data: Transaction[]): void => {
               ? `
               <img
                 class="total__income__logo"
-                src="./src/assets/icons/arrow-up-svgrepo-com.svg"
+                src="${arrowUpIcon}"
                 alt="income__logo"
               />`
               : `
               <img
                 class="total__income__logo"
-                src="./src/assets/icons/arrow-down-svgrepo-com.svg"
+                src="${arrowDownIcon}"
                 alt="expanse__logo"
               />`
           }
@@ -80,8 +85,8 @@ export const showTransactionsData = (data: Transaction[]): void => {
             <p class="transaction__amount">₹${item.amount}</p>
           </b>
 
-          <img class="edit__icon" src="./src/assets/icons/pencil-simple.svg" alt="edit__btn__logo" />
-          <img class="delete__icon" src="./src/assets/icons/trash.svg" alt="delete__btn__logo" />
+          <img class="edit__icon" src="${pencilIcon}" alt="edit__btn__logo" />
+          <img class="delete__icon" src="${trashIcon}" alt="delete__btn__logo" />
         </div>
       `;
     })
