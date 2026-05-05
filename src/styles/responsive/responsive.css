@@ -1,4 +1,33 @@
+@media (max-width: 1024px) {
+  .amount__balance {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .current__balance,
+  .total__income,
+  .total__expenses {
+    min-width: 300px;
+  }
+}
+
 @media (max-width: 768px) {
+  .amount__balance {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .current__balance,
+  .total__income,
+  .total__expenses {
+    min-width: 300px;
+  }
 }
 
 @media (max-width: 320px) {
